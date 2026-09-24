@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Play, ArrowRight, Gamepad2, Clock, AlertTriangle } from 'lucide-react'
+import { Gamepad2, Clock, AlertTriangle } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -72,25 +72,6 @@ export function Hero() {
           >
             {gameData.description}
           </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-          >
-            <a
-              href={gameData.links.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary group w-full sm:w-auto"
-              aria-label="Ver en YouTube"
-            >
-              <Play className="w-5 h-5" />
-              <span>Ver en YouTube</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
-          </motion.div>
 
           <motion.div
             className="flex flex-wrap items-center justify-center gap-3 md:gap-4"

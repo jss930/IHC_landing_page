@@ -6,14 +6,6 @@ export const gameData = {
   platform: "Meta Quest / SteamVR / PICO",
   releaseDate: "Próximamente 2025",
 
-  // URLs para reemplazar con las reales
-  links: {
-    steam: "https://store.steampowered.com",
-    itch: "https://itch.io",
-    twitter: "https://twitter.com",
-    youtube: "https://youtube.com",
-  },
-
   // Rutas de imágenes - REEMPLAZA ESTOS ARCHIVOS EN public/images/
   images: {
     heroBg: "/images/hero-bg.jpg",

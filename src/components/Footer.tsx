@@ -1,4 +1,4 @@
-import { Gamepad2, Twitter, Youtube, Instagram, Mail } from 'lucide-react'
+import { Gamepad2, Instagram, Mail } from 'lucide-react'
 import { gameData } from '../data/gameData'
 
 const footerLinks = {
@@ -8,8 +8,6 @@ const footerLinks = {
     { label: 'FAQ', href: '#faq' },
   ],
   comunidad: [
-    { label: 'Twitter/X', href: gameData.links.twitter, external: true },
-    { label: 'YouTube', href: gameData.links.youtube, external: true },
     { label: 'Newsletter', href: '#newsletter' },
   ],
   legal: [
@@ -20,8 +18,6 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Twitter, href: gameData.links.twitter, label: 'Twitter' },
-  { icon: Youtube, href: gameData.links.youtube, label: 'YouTube' },
   { icon: Instagram, href: '#', label: 'Instagram' },
   { icon: Mail, href: '#', label: 'Email' },
 ]
@@ -76,12 +72,9 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="text-text-secondary hover:text-accent-red transition-colors text-sm flex items-center gap-1"
+                    className="text-text-secondary hover:text-accent-red transition-colors text-sm"
                   >
                     {link.label}
-                    {link.external && <svg className="w-3 h-3 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>}
                   </a>
                 </li>
               ))}

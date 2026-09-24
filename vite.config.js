@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 var __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
+    base: '/IHC_landing_page/',
     plugins: [react()],
     resolve: {
         alias: {

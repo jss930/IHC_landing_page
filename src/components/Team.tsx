@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Twitter, Github, Linkedin, Globe, Mail } from 'lucide-react'
+import { Twitter, Github, Linkedin, Globe } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -105,10 +105,9 @@ export function Team() {
           <p className="text-text-secondary mb-4">
             ¿Quieres unirte? Estamos buscando <span className="text-accent-red font-medium">QA Testers VR</span> y <span className="text-accent-amber font-medium">Community Managers</span>.
           </p>
-          <a href={gameData.links.twitter} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-            <Mail className="w-4 h-4" />
-            Contacta en Twitter
-          </a>
+          <p className="text-text-muted text-sm">
+            Contacta a través de GitHub Issues
+          </p>
         </motion.div>
       </div>
     </section>
