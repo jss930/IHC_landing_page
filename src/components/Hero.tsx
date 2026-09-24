@@ -80,14 +80,14 @@ export function Hero() {
             transition={{ delay: 0.7, duration: 0.6 }}
           >
             <a
-              href={gameData.links.gameplay}
+              href={gameData.links.youtube}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary group w-full sm:w-auto"
-              aria-label="Ver gameplay"
+              aria-label="Ver en YouTube"
             >
               <Play className="w-5 h-5" />
-              <span>Ver Gameplay</span>
+              <span>Ver en YouTube</span>
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
           </motion.div>

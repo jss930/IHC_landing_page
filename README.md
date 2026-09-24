@@ -63,7 +63,6 @@ export const gameData = {
     itch: "https://tu-usuario.itch.io/tu-juego",
     twitter: "https://twitter.com/tuusuario",
     youtube: "https://youtube.com/@tucanal",
-    gameplay: "https://www.youtube.com/embed/TU_VIDEO_ID",
   },
   features: [ ... ],  // Añade/quita/modifica características
   team: [ ... ],      // Actualiza nombres, roles, bios, redes

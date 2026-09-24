@@ -32,17 +32,6 @@ export function UserTesting() {
     if (e.key === 'ArrowLeft') prev()
   }
 
-  const getVideoEmbedUrl = (url: string) => {
-    if (url.includes('/embed/')) return url
-    const match = url.match(/[?&]v=([^&]+)/)
-    if (match) return `https://www.youtube.com/embed/${match[1]}`
-    const matchShort = url.match(/youtu\.be\/([^?&]+)/)
-    if (matchShort) return `https://www.youtube.com/embed/${matchShort[1]}`
-    const matchVimeo = url.match(/vimeo\.com\/(\d+)/)
-    if (matchVimeo) return `https://player.vimeo.com/video/${matchVimeo[1]}`
-    return url
-  }
-
   return (
     <section
       ref={sectionRef}
@@ -79,18 +68,19 @@ export function UserTesting() {
               onClick={() => openLightbox(index)}
             >
               <div className="relative aspect-video overflow-hidden">
-                <img
+                <video
                   src={test.thumbnail}
-                  alt={test.title}
+                  poster={test.thumbnail}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
+                  muted
+                  preload="metadata"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bomb-bg/90 via-bomb-bg/30 to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.button
                     className="w-20 h-20 rounded-full bg-accent-red/90 flex items-center justify-center text-white scale-95 group-hover:scale-100 transition-transform duration-300 shadow-2xl shadow-accent-red/50"
                     whileTap={{ scale: 0.9 }}
-                    aria-label={`Ver ${test.title}`}
+                    aria-label={`Ver video ${index + 1}`}
                   >
                     <Play className="w-8 h-8 ml-1" />
                   </motion.button>
@@ -100,14 +90,6 @@ export function UserTesting() {
                     Test {index + 1}
                   </span>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-bold text-text-primary mb-2 group-hover:text-accent-red transition-colors">
-                  {test.title}
-                </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  {test.description}
-                </p>
               </div>
             </motion.article>
           ))}
@@ -156,12 +138,12 @@ export function UserTesting() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
-                <iframe
-                  src={getVideoEmbedUrl(tests[currentIndex].videoUrl)}
-                  title={tests[currentIndex].title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
+                <video
+                  src={tests[currentIndex].videoSrc}
+                  className="w-full h-full object-contain"
+                  controls
+                  autoPlay
+                  playsInline
                 />
               </div>
             </motion.div>

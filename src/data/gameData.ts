@@ -12,7 +12,6 @@ export const gameData = {
     itch: "https://itch.io",
     twitter: "https://twitter.com",
     youtube: "https://youtube.com",
-    gameplay: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder YouTube
   },
 
   // Rutas de imágenes - REEMPLAZA ESTOS ARCHIVOS EN public/images/
@@ -137,17 +136,13 @@ export const gameData = {
   userTesting: [
     {
       id: "test-1",
-      title: "Playtesting - Usuario 1",
-      description: "Primer contacto con la bomba. El jugador descubre las mecánicas básicas.",
-      thumbnail: "/images/testing/test-1-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1",
+      thumbnail: "/images/video usuario2.mp4",
+      videoSrc: "/images/video usuario2.mp4",
     },
     {
       id: "test-2",
-      title: "Playtesting - Usuario 2",
-      description: "Jugador experimentado completando puzzles bajo presión.",
-      thumbnail: "/images/testing/test-2-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2",
+      thumbnail: "/images/video usuario2.mp4",
+      videoSrc: "/images/video usuario2.mp4",
     },
   ],
 }
