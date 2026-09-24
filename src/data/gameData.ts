@@ -21,11 +21,6 @@ export const gameData = {
     logo: "/images/logo.svg",
     ogImage: "/images/og-image.jpg",
     screenshots: [
-      "/images/screenshots/diseño1.jpeg",
-      "/images/screenshots/diseño2.jpeg",
-      "/images/screenshots/diseño3.jpeg",
-      "/images/screenshots/diseño4.jpeg",
-      "/images/screenshots/diseño5.jpeg",
       "/images/screenshots/captura1.png",
     ],
     team: [
@@ -35,11 +30,11 @@ export const gameData = {
       "/images/team/dev4.jpg",
     ],
     gameDesign: [
-      "/images/design/design-1.jpg",
-      "/images/design/design-2.jpg",
-      "/images/design/design-3.jpg",
-      "/images/design/design-4.jpg",
-      "/images/design/design-5.jpg",
+      "/images/design/diseño1.jpeg",
+      "/images/design/diseño2.jpeg",
+      "/images/design/diseño3.jpeg",
+      "/images/design/diseño4.jpeg",
+      "/images/design/diseño5.jpeg",
     ],
   },
 
@@ -142,19 +137,17 @@ export const gameData = {
   userTesting: [
     {
       id: "test-1",
-      title: "Sesión de Playtesting - Usuario 1",
-      description: "Primer contacto con la bomba. El jugador descubre las mecánicas básicas y resuelve el puzzle de cables.",
+      title: "Playtesting - Usuario 1",
+      description: "Primer contacto con la bomba. El jugador descubre las mecánicas básicas.",
       thumbnail: "/images/testing/test-1-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1", // Reemplazar con URL real de YouTube/Vimeo
-      duration: "3:42",
+      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_1",
     },
     {
       id: "test-2",
-      title: "Sesión de Playtesting - Usuario 2",
-      description: "Jugador experimentado en VR. Completando el puzzle de memoria y circuitos bajo presión del timer.",
+      title: "Playtesting - Usuario 2",
+      description: "Jugador experimentado completando puzzles bajo presión.",
       thumbnail: "/images/testing/test-2-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2", // Reemplazar con URL real de YouTube/Vimeo
-      duration: "4:15",
+      videoUrl: "https://www.youtube.com/embed/VIDEO_ID_2",
     },
   ],
 }

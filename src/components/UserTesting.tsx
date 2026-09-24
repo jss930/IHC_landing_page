@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, KeyboardEvent } from 'react'
-import { X, ChevronLeft, ChevronRight, Play, Clock, User, Eye } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Play, User } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -33,15 +33,11 @@ export function UserTesting() {
   }
 
   const getVideoEmbedUrl = (url: string) => {
-    // Si ya es embed, devolverlo tal cual
     if (url.includes('/embed/')) return url
-    // Si es youtube.com/watch?v=, convertir a embed
     const match = url.match(/[?&]v=([^&]+)/)
     if (match) return `https://www.youtube.com/embed/${match[1]}`
-    // Si es youtu.be/, convertir a embed
     const matchShort = url.match(/youtu\.be\/([^?&]+)/)
     if (matchShort) return `https://www.youtube.com/embed/${matchShort[1]}`
-    // Si es vimeo, convertir a player
     const matchVimeo = url.match(/vimeo\.com\/(\d+)/)
     if (matchVimeo) return `https://player.vimeo.com/video/${matchVimeo[1]}`
     return url
@@ -98,16 +94,6 @@ export function UserTesting() {
                   >
                     <Play className="w-8 h-8 ml-1" />
                   </motion.button>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-sm text-text-secondary bg-bomb-bg/80 px-3 py-1.5 rounded-full">
-                    <Eye className="w-4 h-4" />
-                    Playtesting
-                  </span>
-                  <span className="flex items-center gap-1.5 text-sm text-text-secondary bg-bomb-bg/80 px-3 py-1.5 rounded-full">
-                    <Clock className="w-4 h-4" />
-                    {test.duration}
-                  </span>
                 </div>
                 <div className="absolute top-4 right-4">
                   <span className="bg-accent-red/90 text-white px-3 py-1 rounded-full text-xs font-mono">
@@ -177,10 +163,6 @@ export function UserTesting() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white/70 text-sm">
-                <span>{tests[currentIndex].title}</span>
-                <span>{currentIndex + 1} / {tests.length}</span>
               </div>
             </motion.div>
 
