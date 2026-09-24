@@ -148,6 +148,7 @@ export function UserTesting() {
                   controls
                   autoPlay
                   playsInline
+                  muted
                 />
               </div>
             </motion.div>
