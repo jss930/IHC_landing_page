@@ -61,10 +61,9 @@ export const gameData = {
   links: {
     steam: "https://store.steampowered.com/app/TU_ID",
     itch: "https://tu-usuario.itch.io/tu-juego",
-    discord: "https://discord.gg/tu-invite",
     twitter: "https://twitter.com/tuusuario",
     youtube: "https://youtube.com/@tucanal",
-    trailer: "https://www.youtube.com/embed/TU_VIDEO_ID",
+    gameplay: "https://www.youtube.com/embed/TU_VIDEO_ID",
   },
   features: [ ... ],  // Añade/quita/modifica características
   team: [ ... ],      // Actualiza nombres, roles, bios, redes
