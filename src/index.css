@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #0a0a0f;
+    --color-surface: #14141f;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bomb-bg text-text-primary;
+    background-image: url("/images/grid-pattern.svg"), radial-gradient(ellipse at center, rgba(255,51,51,0.08) 0%, transparent 70%);
+    background-size: 60px 60px, cover;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-accent-red/30 text-text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bomb-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-red/50 rounded-full hover:bg-accent-red/70;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bomb-bg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-red text-white hover:bg-accent-red/90 active:scale-[0.98] focus-visible:ring-accent-red shadow-lg shadow-accent-red/30;
+  }
+
+  .btn-secondary {
+    @apply btn bg-bomb-surface border border-bomb-border text-text-primary hover:bg-bomb-surfaceHover hover:border-accent-red/50 focus-visible:ring-accent-red;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-text-secondary hover:text-text-primary hover:bg-bomb-surface/50 focus-visible:ring-bomb-border;
+  }
+
+  .section {
+    @apply py-20 md:py-32 px-4 md:px-8 lg:px-16;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-text-secondary text-lg md:text-xl text-center max-w-2xl mx-auto mb-16;
+  }
+
+  .card {
+    @apply bg-bomb-surface/80 backdrop-blur-sm border border-bomb-border rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-accent-red/30 hover:shadow-xl hover:shadow-accent-red/10;
+  }
+
+  .glass {
+    @apply bg-bomb-surface/60 backdrop-blur-md border border-bomb-border/50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-red via-accent-amber to-accent-red bg-clip-text text-transparent;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.3), 0 0 40px rgba(255, 51, 51, 0.1);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.3), 0 0 40px rgba(255, 170, 0, 0.1);
+  }
+
+  .animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+  .delay-6 { animation-delay: 0.6s; }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+}
