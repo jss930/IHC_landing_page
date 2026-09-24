@@ -3,6 +3,9 @@ import { Gamepad2, Clock, AlertTriangle } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+const getAssetUrl = (path: string) => `${BASE_URL}${path.replace(/^\//, '')}`
+
 export function Hero() {
   const [heroRef] = useScrollAnimation(0.1)
   const { scrollY } = useScroll()
@@ -16,16 +19,19 @@ export function Hero() {
     { icon: AlertTriangle, label: '4 Puzzles' },
   ]
 
+  const heroBgUrl = getAssetUrl(gameData.images.heroBg)
+  const gridPatternUrl = getAssetUrl('/images/grid-pattern.svg')
+
   return (
     <section
       ref={heroRef}
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ backgroundImage: `url(${gameData.images.heroBg})` }}
+      style={{ backgroundImage: `url(${heroBgUrl})` }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-bomb-bg/90 via-bomb-bg/70 to-bomb-bg/95" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,51,51,0.15)_0%,transparent_70%)]" />
-      <div className="absolute inset-0" style={{ backgroundImage: 'url("/images/grid-pattern.svg")', backgroundSize: '80px 80px', opacity: 0.02 }} />
+      <div className="absolute inset-0" style={{ backgroundImage: `url(${gridPatternUrl})`, backgroundSize: '80px 80px', opacity: 0.02 }} />
 
       <motion.div
         className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 py-20"

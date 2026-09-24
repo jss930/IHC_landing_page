@@ -4,6 +4,9 @@ import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+const getAssetUrl = (path: string) => `${BASE_URL}${path.replace(/^\//, '')}`
+
 export function Gallery() {
   const [sectionRef, isVisible] = useScrollAnimation(0.1)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -35,7 +38,7 @@ export function Gallery() {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget
-    target.src = placeholders
+    target.src = getAssetUrl(placeholders)
   }
 
   return (
@@ -74,7 +77,7 @@ export function Gallery() {
             >
               <div className="relative w-full h-full">
                 <img
-                  src={src}
+                  src={getAssetUrl(src)}
                   alt={`Tick Tock Boom - Screenshot ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -134,7 +137,7 @@ export function Gallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={screenshots[currentIndex]}
+              src={getAssetUrl(screenshots[currentIndex])}
               alt={`Tick Tock Boom - Screenshot ${currentIndex + 1}`}
               className="w-full h-auto rounded-lg shadow-2xl"
               onError={handleImageError}

@@ -4,6 +4,9 @@ import { X, ChevronLeft, ChevronRight, Maximize2, PenTool } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+const getAssetUrl = (path: string) => `${BASE_URL}${path.replace(/^\//, '')}`
+
 export function GameDesign() {
   const [sectionRef, isVisible] = useScrollAnimation(0.1)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -35,7 +38,7 @@ export function GameDesign() {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget
-    target.src = placeholder
+    target.src = getAssetUrl(placeholder)
   }
 
   return (
@@ -75,7 +78,7 @@ export function GameDesign() {
             >
               <div className="relative w-full h-full">
                 <img
-                  src={src}
+                  src={getAssetUrl(src)}
                   alt={`Tick Tock Boom - Diseño ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -139,7 +142,7 @@ export function GameDesign() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={designs[currentIndex]}
+                src={getAssetUrl(designs[currentIndex])}
                 alt={`Tick Tock Boom - Diseño ${currentIndex + 1}`}
                 className="w-full h-auto rounded-lg shadow-2xl"
                 onError={handleImageError}

@@ -128,12 +128,12 @@ export const gameData = {
   userTesting: [
     {
       id: "test-1",
-      thumbnail: "/images/video usuario2.mp4",
+      thumbnail: "/images/placeholders/screenshot.svg",
       videoSrc: "/images/video usuario2.mp4",
     },
     {
       id: "test-2",
-      thumbnail: "/images/video usuario2.mp4",
+      thumbnail: "/images/placeholders/screenshot.svg",
       videoSrc: "/images/video usuario2.mp4",
     },
   ],

@@ -4,6 +4,8 @@ import { X, ChevronLeft, ChevronRight, Play, User } from 'lucide-react'
 import { gameData } from '../data/gameData'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+
 export function UserTesting() {
   const [sectionRef, isVisible] = useScrollAnimation(0.1)
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -31,6 +33,8 @@ export function UserTesting() {
     if (e.key === 'ArrowRight') next()
     if (e.key === 'ArrowLeft') prev()
   }
+
+  const getAssetUrl = (path: string) => `${BASE_URL}${path.replace(/^\//, '')}`
 
   return (
     <section
@@ -69,8 +73,8 @@ export function UserTesting() {
             >
               <div className="relative aspect-video overflow-hidden">
                 <video
-                  src={test.thumbnail}
-                  poster={test.thumbnail}
+                  src={getAssetUrl(test.videoSrc)}
+                  poster={getAssetUrl(test.thumbnail)}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   muted
                   preload="metadata"
@@ -139,7 +143,7 @@ export function UserTesting() {
             >
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
                 <video
-                  src={tests[currentIndex].videoSrc}
+                  src={getAssetUrl(tests[currentIndex].videoSrc)}
                   className="w-full h-full object-contain"
                   controls
                   autoPlay
